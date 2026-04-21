@@ -74,6 +74,19 @@ section h3 {
   margin-bottom: 8px;
 }
 
+.activity-card ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  padding-left: 0;
+}
+
+.activity-card li {
+  margin-bottom: 5px;
+  color: #555;
+  font-size: 14px;
+}
+
 .form-group {
   margin-bottom: 15px;
 }
@@ -142,3 +155,16 @@ footer {
   padding: 20px;
   color: #666;
 }
+
+.activityCard.innerHTML = `
+  <h4>${name}</h4>
+  <p>${details.description}</p>
+  <p><strong>Schedule:</strong> ${details.schedule}</p>
+  <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
+  ${details.participants.length > 0 ? `
+    <p><strong>Participants:</strong></p>
+    <ul>
+      ${details.participants.map(email => `<li>${email}</li>`).join('')}
+    </ul>
+  ` : ''}
+`;
