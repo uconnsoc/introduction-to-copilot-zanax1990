@@ -1,0 +1,12 @@
+from fastapi.testclient import TestClient
+from src.app import app
+
+client = TestClient(app)
+
+def test_get_activities():
+    response = client.get("/activities")
+    assert response.status_code == 200
+
+def test_signup():
+    response = client.post("/activities/Chess%20Club/signup?email=test@example.com")
+    assert response.status_code == 200
